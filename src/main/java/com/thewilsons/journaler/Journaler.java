@@ -23,11 +23,7 @@ final class Journaler {
      * @param args no command line arguments
      */
     public static void main(String[] args) {
-
-        SwingUtilities.invokeLater( () -> {
-            new Controller(new Model(), new View()).control();
-        });
-
+        SwingUtilities.invokeLater(() -> new Controller(new Model(), new View()).control());
     }
 
 }
