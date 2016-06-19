@@ -36,6 +36,11 @@ final class PostsProcessor {
             throw new FileNotFoundException("File '" + f + "' does not exist.");
         }
 
+        // If file is empty, return an empty list
+        if (f.length() == 0) {
+            return new ArrayList<>();
+        }
+
         List<Post> posts = new ArrayList<>();
         DocumentBuilder documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
         Document document = documentBuilder.parse(f);
@@ -65,6 +70,7 @@ final class PostsProcessor {
                 throw new XmlException("Missing text data.");
             }
 
+            // Add it
             posts.add(new Post(timeNode.getTextContent(), textNode.getTextContent()));
         }
 
