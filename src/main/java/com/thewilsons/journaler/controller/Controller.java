@@ -45,16 +45,13 @@ public final class Controller {
     public void control() {
 
         // Set up the Model with a new thread
-        Thread thread = new Thread() {
-            @Override
-            public void run() {
-                try {
-                    model.setUp();
-                } catch (Exception e) {
-                    System.err.println("Error: failed to set up model.");
-                }
+        Thread thread = new Thread(() -> {
+            try {
+                model.setUp();
+            } catch (Exception e) {
+                System.err.println("Error: failed to set up model.");
             }
-        };
+        });
         thread.start();
 
 
