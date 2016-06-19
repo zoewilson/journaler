@@ -21,9 +21,9 @@ final class DatabaseManager {
     private File file = new File(directory.getAbsolutePath() + File.separator + "posts.xml");
 
     /**
-     * Gets the posts from file and returns them. If the file does not exist, the resources directory and the posts.xml
-     * file will be created.
-     * @return the posts.
+     * Gets the posts from file and returns them. If the file does not exist, the resources
+     * directory and the posts.xml file will be created.
+     * @return the posts
      * @throws Exception
      */
     List<Post> getPosts() throws Exception {
@@ -55,7 +55,7 @@ final class DatabaseManager {
 
     /**
      * Writes the posts back to file.
-     * @param posts the posts to be written to file.
+     * @param posts the posts to be written to file
      * @throws Exception
      */
     void writePosts(List<Post> posts) throws Exception {

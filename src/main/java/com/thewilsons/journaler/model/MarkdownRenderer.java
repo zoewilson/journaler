@@ -11,7 +11,7 @@ import java.util.List;
  * @since version 1.0
  * created Mar 4, 2016
  */
-public final class MarkdownRenderer {
+final class MarkdownRenderer {
 
     /** The Markdown processor. */
     private Markdown4jProcessor processor;
@@ -19,16 +19,16 @@ public final class MarkdownRenderer {
     /**
      * Constructor.
      */
-    public MarkdownRenderer() {
+    MarkdownRenderer() {
         processor = new Markdown4jProcessor();
     }
 
     /**
      * Converts Markdown text to HTML.
-     * @param post the Markdown text.
-     * @return HTML equivalent of the markdown.
+     * @param post the Markdown text
+     * @return HTML equivalent of the markdown
      */
-    public String markdownToHTML(Post post) {
+    String markdownToHTML(Post post) {
         String htmlText;
         try {
             htmlText = processor.process(post.getText());
@@ -40,10 +40,10 @@ public final class MarkdownRenderer {
 
     /**
      * Converts a list of Markdown text to HTML.
-     * @param posts the Markdown text.
-     * @return HTML equivalent of the markdown.
+     * @param posts the Markdown text
+     * @return HTML equivalent of the markdown
      */
-    public String markdownToHTML(List<Post> posts) {
+    String markdownToHTML(List<Post> posts) {
         String htmlText = "";
         for (Post post : posts) {
             String text;
