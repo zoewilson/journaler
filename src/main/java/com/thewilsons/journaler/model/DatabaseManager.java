@@ -18,7 +18,7 @@ import java.util.List;
 final class DatabaseManager {
 
     /** Log4j logger. */
-    private static final Logger LOG = Logger.getLogger(Controller.class);
+    private static final Logger LOG = Logger.getLogger(DatabaseManager.class);
 
     /** The resources directory. */
     private File directory = new File("resources");

@@ -16,7 +16,7 @@ import java.util.List;
 final class MarkdownRenderer {
 
     /** Log4j logger. */
-    private static final Logger LOG = Logger.getLogger(Controller.class);
+    private static final Logger LOG = Logger.getLogger(MarkdownRenderer.class);
 
     /** The Markdown processor. */
     private Markdown4jProcessor processor;

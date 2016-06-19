@@ -28,7 +28,7 @@ import java.util.List;
 final class PostsProcessor {
 
     /** Log4j logger. */
-    private static final Logger LOG = Logger.getLogger(Controller.class);
+    private static final Logger LOG = Logger.getLogger(PostsProcessor.class);
 
     /**
      * Parses a file Posts into a list of Posts.

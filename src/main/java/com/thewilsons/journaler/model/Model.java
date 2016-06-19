@@ -16,7 +16,7 @@ import java.util.List;
 public final class Model {
 
     /** Log4j logger. */
-    private static final Logger LOG = Logger.getLogger(Controller.class);
+    private static final Logger LOG = Logger.getLogger(Model.class);
 
     /** DatabaseManager. */
     private DatabaseManager databaseManager;
