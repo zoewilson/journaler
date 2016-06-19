@@ -1,5 +1,8 @@
 package com.thewilsons.journaler.model;
 
+import com.thewilsons.journaler.controller.Controller;
+import org.apache.log4j.Logger;
+
 import java.util.List;
 
 /**
@@ -11,6 +14,9 @@ import java.util.List;
  * created February 20, 2016
  */
 public final class Model {
+
+    /** Log4j logger. */
+    private static final Logger LOG = Logger.getLogger(Controller.class);
 
     /** DatabaseManager. */
     private DatabaseManager databaseManager;

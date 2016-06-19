@@ -4,6 +4,7 @@ import com.thewilsons.journaler.model.Model;
 import com.thewilsons.journaler.view.View;
 import com.thewilsons.journaler.view.ZFrame;
 import com.thewilsons.journaler.view.ZMenuBar;
+import org.apache.log4j.Logger;
 
 import java.awt.*;
 
@@ -16,6 +17,9 @@ import java.awt.*;
  * created February 20, 2016
  */
 public final class Controller {
+
+    /** Log4j logger. */
+    private static final Logger LOG = Logger.getLogger(Controller.class);
 
     /** The model of the MVC. */
     private Model model;

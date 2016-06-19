@@ -1,5 +1,7 @@
 package com.thewilsons.journaler.model;
 
+import com.thewilsons.journaler.controller.Controller;
+import org.apache.log4j.Logger;
 import org.markdown4j.Markdown4jProcessor;
 import java.io.IOException;
 import java.util.List;
@@ -12,6 +14,9 @@ import java.util.List;
  * created Mar 4, 2016
  */
 final class MarkdownRenderer {
+
+    /** Log4j logger. */
+    private static final Logger LOG = Logger.getLogger(Controller.class);
 
     /** The Markdown processor. */
     private Markdown4jProcessor processor;

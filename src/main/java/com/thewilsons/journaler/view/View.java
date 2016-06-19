@@ -1,5 +1,8 @@
 package com.thewilsons.journaler.view;
 
+import com.thewilsons.journaler.controller.Controller;
+import org.apache.log4j.Logger;
+
 /**
  * Represents the View in the MVC.
  *

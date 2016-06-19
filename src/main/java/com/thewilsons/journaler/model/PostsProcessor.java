@@ -1,6 +1,8 @@
 package com.thewilsons.journaler.model;
 
+import com.thewilsons.journaler.controller.Controller;
 import com.thewilsons.journaler.utils.XmlException;
+import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -24,6 +26,9 @@ import java.util.List;
  * created February 23, 2016
  */
 final class PostsProcessor {
+
+    /** Log4j logger. */
+    private static final Logger LOG = Logger.getLogger(Controller.class);
 
     /**
      * Parses a file Posts into a list of Posts.
