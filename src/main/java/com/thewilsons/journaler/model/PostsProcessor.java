@@ -1,6 +1,5 @@
 package com.thewilsons.journaler.model;
 
-import com.thewilsons.journaler.controller.Controller;
 import com.thewilsons.journaler.utils.XmlException;
 import org.apache.log4j.Logger;
 import org.w3c.dom.Document;

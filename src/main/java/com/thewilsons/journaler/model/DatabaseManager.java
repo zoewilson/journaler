@@ -1,6 +1,5 @@
 package com.thewilsons.journaler.model;
 
-import com.thewilsons.journaler.controller.Controller;
 import org.apache.log4j.Logger;
 
 import java.io.File;
