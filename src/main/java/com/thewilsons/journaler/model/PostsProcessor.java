@@ -76,7 +76,9 @@ final class PostsProcessor {
             // Add it
             posts.add(new Post(timeNode.getTextContent(), textNode.getTextContent()));
             if (LOG.isDebugEnabled()) {
-                LOG.debug("Retrieved new post: " + posts.get(posts.size()-1));
+                Post p = posts.get(posts.size()-1);
+                LOG.debug("Retrieved new post: Post[time=" + p.getTime() + ", text=" +
+                          p.getText().substring(0,25));
             }
         }
 
