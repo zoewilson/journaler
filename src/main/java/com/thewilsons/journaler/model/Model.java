@@ -60,6 +60,14 @@ public final class Model {
     }
 
     /**
+     * Gets the most recent post from the list.
+     * @return the latest post
+     */
+    public Post getLatestPost() {
+        return posts.get(posts.size() - 1);
+    }
+
+    /**
      * Gets all posts.
      * @return all JSON posts
      */
