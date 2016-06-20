@@ -1,5 +1,8 @@
 package com.thewilsons.journaler.view;
 
+import com.thewilsons.journaler.controller.Controller;
+import org.apache.log4j.Logger;
+
 /**
  * Represents the View in the MVC.
  *
@@ -10,6 +13,9 @@ package com.thewilsons.journaler.view;
  */
 public final class View {
 
+    /** Log4j logger. */
+    private static final Logger LOG = Logger.getLogger(View.class);
+
     /** The frame of the application. */
     private ZFrame frame;
 
@@ -18,6 +24,7 @@ public final class View {
      */
     public View() {
         frame = new ZFrame();
+        LOG.info("Created frame.");
     }
 
     /**

@@ -19,43 +19,49 @@ final class DatabaseManager {
     /** Log4j logger. */
     private static final Logger LOG = Logger.getLogger(DatabaseManager.class);
 
-    /** The resources directory. */
-    private File directory = new File("resources");
+    /** The db directory. */
+    private File dbDirectory = new File("src" + File.separator + "main" + File.separator +
+                                        "resources" + File.separator + "db");
 
     /** The file containing all posts. */
-    private File file = new File(directory.getAbsolutePath() + File.separator + "posts.xml");
+    private File file = new File(dbDirectory.getAbsolutePath() + File.separator + "posts.xml");
 
     /**
      * Gets the posts from file and returns them. If the file does not exist, the resources
-     * directory and the posts.xml file will be created.
+     * resourcesDirectory and the posts.xml file will be created.
      * @return the posts
      * @throws Exception
      */
     List<Post> getPosts() throws Exception {
-
-
-        // Directory and file do not exist
-        if (!directory.exists()) {
-            if (!directory.mkdir()) {
-                throw new Exception("Failed to create '" + directory + "'.");
+        LOG.info("Checking if database file exists.");
+        if (dbDirectory.exists()) {
+            if (LOG.isDebugEnabled()) {
+                LOG.debug("Directory exists: " + dbDirectory.getAbsolutePath());
+            }
+            if (file.exists()) {
+                if (LOG.isDebugEnabled()) {
+                    LOG.debug("Database file exists: " + file.getAbsolutePath());
+                }
+                LOG.info("Calling PostsProcessor to parse database file.");
+                return PostsProcessor.parse(file);
+            }
+            if (LOG.isDebugEnabled()) {
+                LOG.debug("Database file: " + file.getAbsolutePath());
+            }
+            LOG.info("Returning new, empty list.");
+            return new ArrayList<>();
+        } else {
+            if (LOG.isDebugEnabled()) {
+                LOG.debug("Database file does not exist: " + file.getAbsolutePath());
             }
             if (!file.createNewFile()) {
-                throw new Exception("Failed to create '" + file + "'.");
+                throw new Exception("Unable to create: " + file.getAbsolutePath());
+            }
+            if (LOG.isDebugEnabled()) {
+                LOG.debug("Created database file: " + file.getAbsolutePath());
             }
             return new ArrayList<>();
         }
-
-        // Directory exists but file does not exist
-        else {
-            if (!file.exists()) {
-                if (!file.createNewFile()) {
-                    throw new Exception("Failed to create '" + file + "'.");
-                }
-                return new ArrayList<>();
-            }
-        }
-
-        return PostsProcessor.parse(file);
     }
 
     /**

@@ -14,8 +14,10 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.*;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Handles processing Posts for reading, writing, and parsing.
@@ -39,9 +41,8 @@ final class PostsProcessor {
         if (!f.exists()) {
             throw new FileNotFoundException("File '" + f + "' does not exist.");
         }
-
-        // If file is empty, return an empty list
         if (f.length() == 0) {
+            LOG.info("Database file is empty: Returning new, empty list.");
             return new ArrayList<>();
         }
 
@@ -76,6 +77,9 @@ final class PostsProcessor {
 
             // Add it
             posts.add(new Post(timeNode.getTextContent(), textNode.getTextContent()));
+            if (LOG.isDebugEnabled()) {
+                LOG.debug("Retrieved new post: " + posts.get(posts.size()-1));
+            }
         }
 
         return posts;
@@ -88,10 +92,6 @@ final class PostsProcessor {
      * @throws Exception
      */
     static void write(File f, List<Post> posts) throws Exception {
-        if (!f.exists()) {
-            throw new FileNotFoundException("File '" + f + "' does not exist.");
-        }
-
         Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
         Element postsElement = document.createElement("posts");
 

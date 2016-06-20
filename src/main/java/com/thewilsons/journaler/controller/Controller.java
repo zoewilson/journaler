@@ -45,30 +45,35 @@ public final class Controller {
 
     /**
      * Controls the application by creating event listeners for components.
+     * @exception
      */
-    public void control() {
-
+    public void control() throws Exception {
         // Set up the Model with a new thread
         Thread thread = new Thread(() -> {
             try {
                 model.setUp();
             } catch (Exception e) {
-                System.err.println("Error: failed to set up model.");
+                throw new RuntimeException("Failed to set up Model.", e);
             }
         });
         thread.start();
-
-
+        LOG.info("Child thread is setting up Model.");
         createActionListeners();
+        LOG.info("Created action listeners.");
         view.getFrame().setVisible(true);
 
         // Join the thread
         try {
             thread.join();
+            if (LOG.isDebugEnabled()) {
+                LOG.debug("Child thread joined: Model is now set up.");
+            }
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
+        if (LOG.isInfoEnabled()) {
+            LOG.info("Successfully set up all resources.");
+        }
     }
 
     /**

@@ -3,6 +3,7 @@ package com.thewilsons.journaler;
 import com.thewilsons.journaler.controller.Controller;
 import com.thewilsons.journaler.model.Model;
 import com.thewilsons.journaler.view.View;
+import org.apache.log4j.Logger;
 
 import javax.swing.*;
 
@@ -16,6 +17,9 @@ import javax.swing.*;
  */
 final class Journaler {
 
+    /** Log4j logger. */
+    private static final Logger LOG = Logger.getLogger(Journaler.class);
+
     /**
      * Main.
      * Runs application by creating an instance of the model, view, and passing them into the
@@ -23,7 +27,17 @@ final class Journaler {
      * @param args no command line arguments
      */
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new Controller(new Model(), new View()).control());
+        SwingUtilities.invokeLater(() -> {
+            try {
+                LOG.info("Setting up components.");
+                Model model = new Model();
+                View view = new View();
+                Controller controller = new Controller(model, view);
+                controller.control();
+            } catch (Exception e) {
+                LOG.fatal("Fatal error occurred.", e);
+            }
+        });
     }
 
 }

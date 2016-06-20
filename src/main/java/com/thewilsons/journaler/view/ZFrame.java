@@ -1,5 +1,7 @@
 package com.thewilsons.journaler.view;
 
+import org.apache.log4j.Logger;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -12,6 +14,9 @@ import java.awt.*;
  * created February 20, 2016
  */
 public final class ZFrame extends JFrame {
+
+    /** Log4j logger. */
+    private static final Logger LOG = Logger.getLogger(View.class);
 
     /** The panel of the frame. */
     private JPanel panel;
