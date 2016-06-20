@@ -25,8 +25,15 @@ public class Post {
      * Constructor.
      * @param time time of the post
      * @param text the text of the post
+     * @throws IllegalArgumentException if either argument is <code>null</code>
      */
-    public Post(String time, String text) {
+    public Post(String time, String text) throws IllegalArgumentException {
+        if (time == null) {
+            throw new IllegalArgumentException("Time field cannot be null.");
+        }
+        if (text == null) {
+            throw new IllegalArgumentException("Text field cannot be null.");
+        }
         this.time = time;
         this.text = text;
     }
@@ -45,6 +52,25 @@ public class Post {
      */
     public String getTime() {
         return time;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Post post = (Post) o;
+
+        if (text != null ? !text.equals(post.text) : post.text != null) return false;
+        return time != null ? time.equals(post.time) : post.time == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = text != null ? text.hashCode() : 0;
+        result = 31 * result + (time != null ? time.hashCode() : 0);
+        return result;
     }
 
     @Override
