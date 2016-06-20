@@ -16,7 +16,7 @@ import java.awt.*;
 public final class ZFrame extends JFrame {
 
     /** Log4j logger. */
-    private static final Logger LOG = Logger.getLogger(View.class);
+    private static final Logger LOG = Logger.getLogger(ZFrame.class);
 
     /** The panel of the frame. */
     private JPanel panel;
