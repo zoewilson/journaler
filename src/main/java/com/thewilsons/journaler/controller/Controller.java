@@ -95,6 +95,9 @@ public final class Controller {
                 return;
             }
             model.post(text);
+            if (LOG.isInfoEnabled()) {
+                LOG.info("Added new post: " + model.getLatestPost());
+            }
             frame.getTextArea().setText("");
         });
 
