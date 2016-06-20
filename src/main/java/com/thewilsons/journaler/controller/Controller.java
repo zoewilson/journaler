@@ -45,7 +45,7 @@ public final class Controller {
 
     /**
      * Controls the application by creating event listeners for components.
-     * @exception
+     * @throws Exception
      */
     public void control() throws Exception {
         // Set up the Model with a new thread
