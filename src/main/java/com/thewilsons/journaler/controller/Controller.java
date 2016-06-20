@@ -67,7 +67,9 @@ public final class Controller {
             thread.join();
             LOG.debug("Child thread joined: Model is now set up.");
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            if (LOG.isDebugEnabled()) {
+                LOG.debug(e.getMessage());
+            }
         }
     }
 
@@ -75,13 +77,14 @@ public final class Controller {
      * Create all action listeners.
      */
     private void createActionListeners() {
-
         ZFrame frame = view.getFrame();
         ZMenuBar menu = frame.getZMenuBar();
 
         // Close listener
         menu.getMenu(0).getItem(3).addActionListener(event -> {
+            LOG.info("Calling shutdown hook.");
             shutdownHook();
+            LOG.info("Exiting application.");
             System.exit(0);
         });
 
