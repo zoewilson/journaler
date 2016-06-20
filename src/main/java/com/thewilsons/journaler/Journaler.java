@@ -30,10 +30,7 @@ final class Journaler {
         SwingUtilities.invokeLater(() -> {
             try {
                 LOG.info("Setting up components.");
-                Model model = new Model();
-                View view = new View();
-                Controller controller = new Controller(model, view);
-                controller.control();
+                new Controller(new Model(), new View()).control();
             } catch (Exception e) {
                 LOG.fatal("Fatal error occurred.", e);
             }
