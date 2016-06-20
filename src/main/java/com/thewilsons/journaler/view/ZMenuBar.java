@@ -41,7 +41,6 @@ public final class ZMenuBar extends JMenuBar {
      * @return the file menu
      */
     private JMenu createFileMenuItem() {
-
         JMenu menu = new JMenu("File");
 
         // "New"
@@ -74,7 +73,6 @@ public final class ZMenuBar extends JMenuBar {
      * @return the edit menu
      */
     private JMenu createEditMenuItem() {
-
         JMenu menu = new JMenu("Edit");
 
         JMenuItem cutMi = new JMenuItem("Cut");
@@ -94,16 +92,14 @@ public final class ZMenuBar extends JMenuBar {
      * @return the format menu
      */
     private JMenu createFormatMenuItem() {
-
         JMenu menu = new JMenu("Format");
 
         JMenuItem boldMi = new JMenuItem("Bold");
-        menu.add(boldMi);
-
         JMenuItem italicMi = new JMenuItem("Italic");
-        menu.add(italicMi);
-
         JMenuItem underlineMi = new JMenuItem("Underline");
+
+        menu.add(boldMi);
+        menu.add(italicMi);
         menu.add(underlineMi);
 
         return menu;
@@ -114,7 +110,6 @@ public final class ZMenuBar extends JMenuBar {
      * @return the view menu
      */
     private JMenu createViewMenuItem() {
-
         JMenu menu = new JMenu("View");
 
         // "Full screen"
@@ -142,7 +137,6 @@ public final class ZMenuBar extends JMenuBar {
      * @return the window menu
      */
     private JMenu createWindowMenuItem() {
-
         JMenu menu = new JMenu("Window");
 
         JMenuItem maximizeMi = new JMenuItem("Maximize");
