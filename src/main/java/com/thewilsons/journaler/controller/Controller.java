@@ -65,14 +65,9 @@ public final class Controller {
         // Join the thread
         try {
             thread.join();
-            if (LOG.isDebugEnabled()) {
-                LOG.debug("Child thread joined: Model is now set up.");
-            }
+            LOG.debug("Child thread joined: Model is now set up.");
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
-        if (LOG.isInfoEnabled()) {
-            LOG.info("Successfully set up all resources.");
         }
     }
 
@@ -108,7 +103,6 @@ public final class Controller {
                 frame.setExtendedState(Frame.NORMAL);
             }
         });
-
     }
 
     /**
@@ -118,6 +112,7 @@ public final class Controller {
         try {
             model.write();
         } catch (Exception e) {
+            LOG.error("Unable to save posts.");
             view.getFrame().displayMessageBox("ERROR: unable to save posts!");
         }
     }
