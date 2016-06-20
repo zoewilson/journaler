@@ -29,7 +29,7 @@ public final class Model {
     /**
      * Constructor.
      */
-    public Model() { }
+    public Model() {}
 
     /**
      * Sets up the Model by creating the DatabaseManager object and obtaining the posts from the
